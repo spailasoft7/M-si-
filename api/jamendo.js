@@ -1,7 +1,8 @@
 export default async function handler(req, res) {
   try {
+    const query = req.query.q ? `&search=${encodeURIComponent(req.query.q)}` : "";
     const response = await fetch(
-      `https://api.jamendo.com/v3.0/tracks/?client_id=${process.env.JAMENDO_CLIENT_ID}&format=json&limit=10&order=popularity_total`
+      `https://api.jamendo.com/v3.0/tracks/?client_id=${process.env.JAMENDO_CLIENT_ID}&format=json&limit=10&order=popularity_total${query}`
     );
 
     const data = await response.json();
