@@ -1,3 +1,14 @@
+
+// scripts.js
+
+document.getElementById("loginBtn").addEventListener("click", () => {
+  const clientId = "01ba4b4f"; // from Jamendo developer site
+  const redirectUri = "https://m-si.vercel.app/api/callback";
+  const authUrl = `https://api.jamendo.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=music+playlists+favorites`;
+  
+  window.location.href = authUrl;
+});
+
 // Fetch top tracks when page loads
 async function fetchTracks(query = "") {
   let url = "/api/jamendo";
