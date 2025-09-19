@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Mùsicã App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🎶 Mùsicã – Indie Music</h1>
-<button id="loginBtn">Login with Jamendo</button>
+  <h1>Mùsicã App</h1>
 
-  <input type="text" id="searchBox" placeholder="Search for a song..." />
+  <!-- Login / Logout -->
+  <button id="loginBtn">Login with Google</button>
+  <button id="logoutBtn">Logout</button>
+
+  <!-- Search -->
+  <input type="text" id="searchInput" placeholder="Search music...">
   <button id="searchBtn">Search</button>
 
-  <div id="results">Loading tracks...</div>
+  <!-- Results -->
+  <div id="results"></div>
 
-  <script src="script.js"></script>
+  <!-- Favorites -->
+  <h2>Favorites</h2>
+  <div id="favorites"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="firebase-init.js"></script>
+  <script type="module" src="firebase-auth.js"></script>
+  <script type="module" src="scripts.js"></script>
 </body>
 </html>
