@@ -27,5 +27,40 @@
   <script type="module" src="firebase-init.js"></script>
   <script type="module" src="firebase-auth.js"></script>
   <script type="module" src="scripts.js"></script>
+
+  <script type="module">
+import { saveFavorite } from "./firebase-auth.js";
+
+const searchBtn = document.getElementById("searchBtn");
+const searchInput = document.getElementById("searchInput");
+const resultsDiv = document.getElementById("results");
+
+const JAMENDO_CLIENT_ID = "01ba4b4f";
+
+searchBtn.addEventListener("click", async () => {
+  const query = searchInput.value;
+  if (!query) return;
+  resultsDiv.innerHTML = "Searching...";
+  const response = await fetch(`https://api.jamendo.com/v3.0/tracks/?client_id=${JAMENDO_CLIENT_ID}&format=json&limit=10&search=${encodeURIComponent(query)}`);
+  const data = await response.json();
+  resultsDiv.innerHTML = "";
+  data.results.forEach(track => {
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <strong>${track.name}</strong> - ${track.artist_name} 
+      <button id="fav-${track.id}">Favorite</button>
+      <audio controls src="${track.audio}"></audio>
+    `;
+    resultsDiv.appendChild(div);
+    document.getElementById(`fav-${track.id}`).addEventListener("click", () => saveFavorite({
+      id: track.id,
+      name: track.name,
+      artist: track.artist_name,
+      audio: track.audio
+    }));
+  });
+});
+</script>
+
 </body>
 </html>
