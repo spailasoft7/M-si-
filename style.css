@@ -1,65 +1,62 @@
 body {
   font-family: Arial, sans-serif;
-  background: #121212;
-  color: white;
-  text-align: center;
   margin: 0;
-  padding: 20px;
+  background: #111;
+  color: #eee;
+}
+
+header {
+  padding: 1rem;
+  text-align: center;
+  background: #222;
 }
 
 h1 {
-  color: #ff4081;
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
 }
 
-input, button {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-}
-
-button {
-  background: #ff4081;
-  color: white;
-  cursor: pointer;
-}
-
-#results {
-  margin-top: 20px;
+.carousel {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 0.5rem;
 }
 
-.track {
-  background: #1e1e1e;
+.carousel img {
+  height: 120px;
   border-radius: 10px;
-  padding: 15px;
-  width: 220px;
-  text-align: left;
-  transition: transform 0.3s;
+  object-fit: cover;
 }
 
-.track:hover {
-  transform: scale(1.05);
+.song-card {
+  background: #1e1e1e;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.track img {
+.song-card img {
   width: 100%;
   border-radius: 8px;
 }
 
-.banner {
-  background: #ff4081;
-  padding: 10px;
-  margin: 15px auto;
-  width: 80%;
-  border-radius: 8px;
-  animation: pulse 2s infinite;
+.song-card h3 {
+  margin: 0.5rem 0;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.9; }
-  50% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.9; }
+button {
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #ff0055;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff3385;
 }
