@@ -4,7 +4,7 @@ const carousel = document.getElementById("carousel");
 
 // Fetch tracks from Jamendo API
 async function fetchTracks() {
-  const url = `https://api.jamendo.com/v3.0/tracks/?client_id=${client_id}&format=json&limit=30&order=latest`;
+  const url = `https://api.jamendo.com/v3.0/tracks/?client_id=${"01ba4b4f"}&format=json&limit=30&order=latest`;
 
   try {
     const res = await fetch(url);
